@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments available</title>
+</head>
+<body>
+    <h1>Available assignments</h1>
+    
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>CTC</th>
+            <th>Deadline</th>
+            <th>Apply</th>
+        </tr>
+
+        {%for assignment in assignments%}
+            <tr>
+                <th>{{assignment.name}}</th>
+                <th>{{assignment.company}}</th>
+                <th>{{assignment.role}}</th>
+                <th>{{assignment.ctc}}</th>
+                <th>{{assignment.deadline}}</th>
+                <th><a href="{%url "assignment_submission" assignment.id%}">
+                    <button type='button'></button>
+                    </a>
+                </th>
+            </tr>
+        {%endfor%}
+
+    </table>
+</body>
+</html>
