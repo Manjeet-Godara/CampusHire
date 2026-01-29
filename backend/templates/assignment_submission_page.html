@@ -6,6 +6,10 @@
     <title>Assignment Submission</title>
 </head>
 <body>
-    <h1>Submit here</h1>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button type='submit'>Submit</button>
+    </form>
 </body>
 </html>

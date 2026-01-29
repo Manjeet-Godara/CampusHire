@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from assignments.models import Assignment
+from .forms import Student_Assignment_Submission
 
 def student_available_assignments(request,student_id):
       
@@ -8,5 +9,12 @@ def student_available_assignments(request,student_id):
     return render(request,'student_available_assignments.html',{'assignments':available_assigments,'student_id':student_id}) 
 
 def assignment_submission(request,student_id,assignment_id):
+    if request.method=='POST':
+        form = Student_Assignment_Submission(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request,'success.html')
+    else:
+        form=Student_Assignment_Submission()
+    return render(request,'assignment_submission_page.html',{'form':form,'student_id':student_id,'assignment_id':assignment_id})
 
-    return render(request,'assignment_submission_page.html')

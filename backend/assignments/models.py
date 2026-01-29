@@ -24,11 +24,11 @@ class AssignmentsSubmitted(models.Model):
     student=models.ForeignKey(Student,on_delete=models.CASCADE,default='',related_name='student')
     assignment=models.ForeignKey(Assignment,on_delete=models.CASCADE,default='')
     submitted_at=models.DateTimeField(default=timezone.now)
-    is_late=models.BooleanField(default='')
-    similarity=models.DecimalField(max_digits=5,decimal_places=2,default=0)
+    is_late=models.BooleanField(default=False)
+    similarity=models.DecimalField(max_digits=5,decimal_places=2,default=0.00)
     similarity_with=models.ForeignKey(Student,on_delete=models.CASCADE,default='',related_name='similarity_link')
-    redflagged=models.BooleanField(default='')
-    uploaded_file=models.FileField(upload_to=unique_file_name,default='',null=False,blank=False) 
+    redflagged=models.BooleanField(default=False)
+    uploaded_file=models.FileField(upload_to=unique_file_name) 
 
 
     
