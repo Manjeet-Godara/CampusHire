@@ -28,7 +28,7 @@ class AssignmentsSubmitted(models.Model):
     similarity=models.DecimalField(max_digits=5,decimal_places=2,default=0.00)
     similarity_with=models.ForeignKey(Student,on_delete=models.CASCADE,related_name='similarity_link')
     redflagged=models.BooleanField(default=False)
-    uploaded_file=models.FileField(upload_to=unique_file_name) 
+    chunks=models.JSONField(default=list,blank=True)
 
 
     

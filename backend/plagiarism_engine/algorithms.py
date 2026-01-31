@@ -1,7 +1,7 @@
 def create_n_grams(file_string,constraint):
     n=len(file_string)
     n_grams=[]
-
+    print(n)
     if n<=constraint:
         n_grams.append(file_string)
     else:   

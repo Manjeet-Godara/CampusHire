@@ -3,6 +3,7 @@ from assignments.models import Assignment
 from .forms import Student_Assignment_Submission
 from orgs.models import Student
 from plagiarism_engine.preprocessing import get_string
+from plagiarism_engine.algorithms import create_n_grams
 
 def student_available_assignments(request,student_id):
       
@@ -23,11 +24,11 @@ def assignment_submission(request,student_id,assignment_id):
             submission.similarity_with=Student.objects.get(id=student_id)
             submission.redflagged=False
 
-            uploaded_file=request.FILES['uploaded_file']
-            
-            print(get_string(uploaded_file))
-
-            #submission.save()
+            uploaded_file=request.FILES['uploaded_file2']
+            created_chunks=create_n_grams(get_string(uploaded_file),4)
+            submission.chunks= created_chunks
+            #print(created_chunks)
+            submission.save()
             return render(request,'success.html')
     else:
         form=Student_Assignment_Submission()

@@ -9,6 +9,8 @@
     <form method='POST' enctype="multipart/form-data">
         {% csrf_token %}
         {{form}}
+
+        <input type="file" id="uploaded_file2" name="uploaded_file2">
         <button type='submit'>Submit</button>
     </form>
 </body>
