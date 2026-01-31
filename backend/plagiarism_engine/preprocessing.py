@@ -1,13 +1,14 @@
 def get_string(file_path):
-    the_file=open(file_path,"r")
 
-    content=the_file.read()
+    content=file_path.read().decode("utf-8")
 
     result=""
-
+    type(content)
     for ch in content:
 
-        if ch in [" ", "\n", "\t"]:
+        if ch in [" ", "\n", "\t","\r"]:
             pass
         else:
-            result+=ch
+            result+=str(ch)
+    
+    return result

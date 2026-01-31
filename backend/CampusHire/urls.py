@@ -22,5 +22,4 @@ urlpatterns = [
     path('register/', include('registrations.urls')),
     path('assignment/',include('assignments.urls')),
     path('student/',include('students.urls')),
-    path('evaluate',include('plagiarism_engine.urls'))
 ]
