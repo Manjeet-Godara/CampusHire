@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'orgs',
     'assignments',
     'registrations',
-    'students'
+    'students',
+    'plagiarism_engine'
 ]
 
 MIDDLEWARE = [
